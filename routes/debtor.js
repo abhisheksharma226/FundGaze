@@ -17,24 +17,42 @@ router.get('/signin' , (req , res) => {
 router.post('/signup' , async(req , res) => {
     const { fullName , email , password } = req.body;
 
-    await Debtor.create({
-        fullName,
-        email,
-        password,
-    });
-    return res.redirect('/');
+    try{
+
+        
+        await Debtor.create({
+            fullName,
+            email,
+            password,
+        });
+        return res.redirect('/');
+
+    }catch(error){
+        return res.render("signup" , {
+            error : "Email Already Exist!"
+        })
+    }
     
 })
 
 
 
 router.post('/signin' , async(req , res) => {
-    
-    const { email , password } = req.body;
-    const debtor = await Debtor.matchPasswordAndGenerateToken({ email, password });
+     const { email , password } = req.body;
 
-    // console.log('Debtor' , debtor);
-    return res.redirect('/');
+     try{
+
+         const debtor = await Debtor.matchPasswordAndGenerateToken({ email, password });
+
+         // console.log('Debtor' , debtor);
+         return res.redirect('/');
+        
+        }catch (error){
+            return res.render("signin" , {
+                error : "Incorrect Email or Password" ,
+        })
+
+    }
 
     })
 

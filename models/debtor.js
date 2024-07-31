@@ -72,7 +72,7 @@ debtorSchema.statics.matchPasswordAndGenerateToken = async function({ email, pas
         // const token = createTokenForUser(debtor);
         // return token;
     } catch (error) {
-        console.error("Error in matchPasswordAndGenerateToken:", error);
+        // console.error("Error in matchPasswordAndGenerateToken:", error);
         throw error;
     }
 };

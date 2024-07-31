@@ -12,6 +12,8 @@ const PORT = 3000;
 dotenv.config();
 
 
+
+
 // DB Connection
 const connectToMongoDB = async () => {
     try {
@@ -27,6 +29,9 @@ const connectToMongoDB = async () => {
 // Call the function to connect to MongoDB
 connectToMongoDB();
 
+//for css
+// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static('public'));
 
 
 
