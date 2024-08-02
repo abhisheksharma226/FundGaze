@@ -13,7 +13,9 @@ router.get('/signin' , (req , res) => {
 })
 
 router.get('/debtorHome' , (req , res) => {
-    return res.render('debtorHome')
+    return res.render('debtorHome' , {
+        debtor: req.debtor,
+    })
 })
 
 
@@ -43,13 +45,13 @@ router.post('/signin' , async(req , res) => {
      const { email , password } = req.body;
 
      try{
+        
+         const token = await Debtor.matchPasswordAndGenerateToken({ email, password });
 
-         const debtor = await Debtor.matchPasswordAndGenerateToken({ email, password });
-
-         // console.log('Debtor' , debtor);
-         return res.redirect('debtorHome');
+         return res.cookie('token' , token).redirect('debtorHome');
         
         }catch (error){
+            console.error("Error in /signin:", error);
             return res.render("signin" , {
                 error : "Incorrect Email or Password" ,
         })
@@ -57,6 +59,12 @@ router.post('/signin' , async(req , res) => {
     }
 
     })
+
+
+router.get('/logout' ,(req , res) => {
+    res.clearCookie('token')
+    .redirect('home');
+})
 
 
 

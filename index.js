@@ -1,16 +1,16 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const path = require("path");
 const debtorRoute = require('./routes/debtor');
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-
+const cookieParser = require('cookie-parser');
+const { checkForAuthenticationCookie } = require("./middleware/authentication");
 
 
 const app = express();
 const PORT = 8080;
-
-dotenv.config();
-
 
 
 
@@ -39,8 +39,12 @@ app.use(express.static('public'));
 app.set("view engine" , "ejs");
 app.set("views" , path.resolve("./views"));
 
+
+//middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cookieParser());
+app.use(checkForAuthenticationCookie("token"));
 
 
 

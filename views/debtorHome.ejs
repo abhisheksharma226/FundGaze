@@ -28,7 +28,17 @@
           <li><a href="#service">Services</a></li>
           <li><a href="#contact">Contact us</a></li>
         </ul>
-        <button class="btn nav__btn">Get Funded</button>
+
+        <div class="dropdown">
+          <button class="btn nav__btn"><%= debtor.fullName %></button>
+          
+          <div class="dropdown-content">
+            <a href="/patient/patientProfile"> My Profile</a>
+            <a href="/">Log Out</a>
+          </div>
+        </div>
+
+
       </nav>
       <div class="section__container header__container" id="home">
         <p>Invest - Innovate - Inspire</p>

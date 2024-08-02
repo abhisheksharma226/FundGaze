@@ -1,5 +1,6 @@
 const { createHmac , randomBytes } = require("crypto");
 const { Schema , model } = require("mongoose");
+const { createTokenForUser } = require("../services/authentication")
 
 
 const debtorSchema = new Schema({
@@ -55,7 +56,11 @@ debtorSchema.pre("save" , function(next) {
 
 debtorSchema.statics.matchPasswordAndGenerateToken = async function({ email, password }) {
     try {
+        // console.log('Looking for user with email:', email);
+
         const debtor = await this.findOne({ email });
+        // console.log(debtor)
+
         if (!debtor) throw new Error("User not found!");
 
         const salt = debtor.salt;
@@ -65,12 +70,13 @@ debtorSchema.statics.matchPasswordAndGenerateToken = async function({ email, pas
             .update(password)
             .digest("hex");
 
-        if (hashedPassword !== debtorProvidedHash) throw new Error("Incorrect password");
+        if (hashedPassword !== debtorProvidedHash) 
+            throw new Error("Incorrect password");
 
-        return debtor;
 
-        // const token = createTokenForUser(debtor);
-        // return token;
+        const token = createTokenForUser(debtor);
+        return token;
+
     } catch (error) {
         // console.error("Error in matchPasswordAndGenerateToken:", error);
         throw error;
