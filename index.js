@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 dotenv.config();
 
