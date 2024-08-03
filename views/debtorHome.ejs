@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles/debtorHome.css" />
-    <title>Debtor-homepage | FundGaze</title>
+    <title>HOME | DEBTOR | FundGaze</title>
   </head> 
   <body>
     <header class="header">
@@ -25,6 +25,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#investors">Investors</a></li>
           <li><a href="#service">Services</a></li>
+          <li><a href="#calculation">Calculate</a></li>
           <li><a href="#contact">Contact us</a></li>
         </ul>
         <button class="btn nav__btn">My Profile</button>
@@ -36,38 +37,38 @@
     </header>
 
     <section class="section__container booking__container">
-      <form action="/" class="booking__form">
+      <form id="fundraising-form" class="booking__form">
         <div class="input__group">
           <span><i class="ri-calendar-2-fill"></i></span>
           <div>
-            <label for="check-in">Amount</label>
-            <input type="number" placeholder="Enter the amount" />
+            <label for="amount">Amount</label>
+            <input type="number" class="amount" name="amount" placeholder="Enter the amount" required />
           </div>
         </div>
         <div class="input__group">
           <span><i class="ri-calendar-2-fill"></i></span>
           <div>
-            <label for="check-out">Equity</label>
+            <label for="equity">Equity</label>
             <div style="display: flex;">
-
-              <input type="text" placeholder="Equity Shares" />
-             <span>%</span>
+              <input type="number" class="equity" name="equity" placeholder="Equity Shares" required />
+              <span>%</span>
             </div>
-
           </div>
         </div>
         <div class="input__group">
           <span><i class="ri-user-fill"></i></span>
           <div>
-            <label for="guest">Bussiness Email</label>
-            <input type="email" placeholder="peter.p@zylker.com" />
+            <label for="email">Business Email</label>
+            <input type="email" class="email" name="email" placeholder="peter.p@zylker.com" required />
           </div>
         </div>
         <div class="input__group input__btn">
-          <button class="btn">RAISE FUND</button>
+          <button type="button" id="raise-fund-btn" class="btn">RAISE FUND</button>
+
         </div>
       </form>
     </section>
+
 
     <section class="section__container about__container" id="about">
       <div class="about__image">
@@ -203,32 +204,28 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
 
     
 
-      <section class="explore" id="explore">
-        <p class="section__subheader">CALCULATE</p>
+    <section class="explore" id="calculation">
+      <p class="section__subheader">CALCULATE</p>
       <h2 class="section__header">Estimate your worth.</h2>
-      
       <div class="explore__bg">
         <div class="explore__content">
-        
           <div style="display: flex;">
             <div>
               <p class="section__description">Company's Valuation</p>
-              <h1>&#8377;50,000,000</h1>
+              <h1 id="valuation-amount">&#8377;50,000,000</h1>
               <a href="#investors" class="btn">Continue</a>
             </div>
-            
-            <div  style="padding-left: 50vh;">
+            <div style="padding-left: 50vh;">
               <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>See Breakup</u></strong>
-              <div style="padding-left:-120px;">
-                <p>Want to raise (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10,00,000</p>
-                <p>FundGaze platform fee (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.3%</p>
-                <p>Payment gateway charges (₹) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10%</p>
+              <div id="breakup-details" style="padding-left:-120px;">
+                <p>Want to raise (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10,00,000</p>
+                <p>FundGaze platform fee (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.3%</p>
+                <p>Payment gateway charges (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10%</p>
               </div>
             </div>
           </div>
-
         </div>
-
+      </div>
     </section>
     
    
@@ -285,6 +282,33 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="main.js"></script>
+    <script src="/scripts/debtorHome.js"></script>
+
+
+    <script>
+      document.getElementById("raise-fund-btn").addEventListener("click", function(event) {
+        // Retrieve form values
+        var amount = document.querySelector(".amount").value;
+        var equity = document.querySelector(".equity").value;
+    
+        // Perform the valuation calculation
+        var valuation = (amount / equity) * 100;
+        var platformFee = (amount * 0.5) / 100;
+        var paymentGatewayCharges = (amount * 12) / 100;
+    
+        // Update the valuation and breakup details in the HTML
+        document.getElementById("valuation-amount").innerHTML = "&#8377;" + valuation.toFixed(2);
+        document.getElementById("breakup-details").innerHTML = `
+          <p>Want to raise (₹) : ${amount}</p>
+          <p>FundGaze platform fee (₹) : ${platformFee.toFixed(2)}</p>
+          <p>Payment gateway charges (₹) : ${paymentGatewayCharges.toFixed(2)}</p>
+        `;
+    
+        // Scroll to the "Estimate your worth" section
+        document.getElementById("calculation").scrollIntoView({ behavior: 'smooth' });
+      });
+    </script>
+    
+
   </body>
 </html>

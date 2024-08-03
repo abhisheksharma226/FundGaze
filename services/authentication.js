@@ -3,6 +3,7 @@ const JWT = require("jsonwebtoken");
 
 const secret = process.env.SECRET_KEY;
 
+
 function createTokenForUser(debtor){
     const payload = {
         _id: debtor._id,

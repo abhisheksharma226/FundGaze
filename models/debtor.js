@@ -26,6 +26,8 @@ const debtorSchema = new Schema({
         type : String , 
         default : "/images/default.png"
     } , 
+
+
     role : {
         type : String , 
         enum : ["USER" , "ADMIN"],
