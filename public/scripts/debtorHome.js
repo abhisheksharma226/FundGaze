@@ -68,3 +68,35 @@ ScrollReveal().reveal(".service__list li", {
   interval: 500,
   origin: "right",
 });
+
+
+
+
+//For Calculation
+document.getElementById("raise-fund-btn").addEventListener("click", function(event) {
+    // Retrieve form values
+    var amount = document.querySelector(".amount").value;
+    var equity = document.querySelector(".equity").value;
+
+    // Perform the valuation calculation
+    var valuation = (amount / equity) * 100;
+    var platformFee = (amount * 0.5) / 100;
+    var paymentGatewayCharges = (amount * 12) / 100;
+
+    // Update the valuation and breakup details in the HTML
+    document.getElementById("valuation-amount").innerHTML = "&#8377;" + valuation.toFixed(2);
+    document.getElementById("breakup-details").innerHTML = `
+      <p>Want to raise (₹) : ${amount} ₹</p>
+      <p>FundGaze platform fee (₹) : ${platformFee.toFixed(2)} ₹</p>
+      <p>Payment gateway charges (₹) : ${paymentGatewayCharges.toFixed(2)} ₹</p>
+    `;
+
+    // Scroll to the "Estimate your worth" section
+    document.getElementById("calculation").scrollIntoView({ behavior: 'smooth' });
+  });
+
+
+
+
+
+  

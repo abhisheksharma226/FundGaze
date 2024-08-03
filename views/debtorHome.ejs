@@ -25,7 +25,6 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#investors">Investors</a></li>
           <li><a href="#service">Services</a></li>
-          <li><a href="#calculation">Calculate</a></li>
           <li><a href="#contact">Contact us</a></li>
         </ul>
         <button class="btn nav__btn">My Profile</button>
@@ -90,7 +89,7 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
     <section class="section__container room__container" id="investors">
       <p class="section__subheader">TOP ANGEL INVESTORS</p>
       <h2 class="section__header"> Find Your Next Big Idea and Growth Potential Here.</h2>
-      <div class="room__grid">
+      <div class="room__grid" style="display: flex;">
         <div class="room__card">
           <div class="room__card__image">
             <img src="/images/anupam-mitthal.jpg" alt="room" />
@@ -150,11 +149,20 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
             <h5>Primary Organization - <span>Swadharma Source Ventures</span></h5>
             <button class="btn">Book Now</button>
           </div>
-
-          
-
         </div>
       </div>
+
+      <div class="svg-container" style="display: flex; flex-direction: column; align-items: center; padding-top: 70px;">
+        <a href="/debtor/allinvestors">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" color="#000000" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+            <path d="M16 12L8 12M16 12C16 12.7002 14.0057 14.0085 13.5 14.5M16 12C16 11.2998 14.0057 9.99153 13.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <b class="svg-text">More</b> <!-- Add text below SVG -->
+      </div>
+      
+
     </section>
 
     <section class="service" id="service">
@@ -187,7 +195,7 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
     <section class="section__container banner__container">
       <div class="banner__content">
         <div class="banner__card">
-          <h4>20+</h4>
+          <h4><%= totalDebtors %>+</h4>
           <p>Fundraisers</p>
         </div>
         <div class="banner__card">
@@ -213,14 +221,14 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
             <div>
               <p class="section__description">Company's Valuation</p>
               <h1 id="valuation-amount">&#8377;50,000,000</h1>
-              <a href="#investors" class="btn">Continue</a>
+              <a href="/debtor/allinvestors" class="btn">Continue</a>
             </div>
             <div style="padding-left: 50vh;">
               <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>See Breakup</u></strong>
               <div id="breakup-details" style="padding-left:-120px;">
                 <p>Want to raise (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10,00,000</p>
-                <p>FundGaze platform fee (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.3%</p>
-                <p>Payment gateway charges (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10%</p>
+                <p>FundGaze platform fee 0.5% (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.3%</p>
+                <p>Payment gateway charges 12% (₹) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10%</p>
               </div>
             </div>
           </div>
@@ -283,31 +291,6 @@ Founded with a vision to transform the startup landscape, we leverage our deep i
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="/scripts/debtorHome.js"></script>
-
-
-    <script>
-      document.getElementById("raise-fund-btn").addEventListener("click", function(event) {
-        // Retrieve form values
-        var amount = document.querySelector(".amount").value;
-        var equity = document.querySelector(".equity").value;
-    
-        // Perform the valuation calculation
-        var valuation = (amount / equity) * 100;
-        var platformFee = (amount * 0.5) / 100;
-        var paymentGatewayCharges = (amount * 12) / 100;
-    
-        // Update the valuation and breakup details in the HTML
-        document.getElementById("valuation-amount").innerHTML = "&#8377;" + valuation.toFixed(2);
-        document.getElementById("breakup-details").innerHTML = `
-          <p>Want to raise (₹) : ${amount}</p>
-          <p>FundGaze platform fee (₹) : ${platformFee.toFixed(2)}</p>
-          <p>Payment gateway charges (₹) : ${paymentGatewayCharges.toFixed(2)}</p>
-        `;
-    
-        // Scroll to the "Estimate your worth" section
-        document.getElementById("calculation").scrollIntoView({ behavior: 'smooth' });
-      });
-    </script>
     
 
   </body>

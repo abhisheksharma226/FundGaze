@@ -12,10 +12,24 @@ router.get('/signin' , (req , res) => {
     return res.render('signin')
 })
 
-router.get('/debtorHome' , (req , res) => {
-    return res.render('debtorHome' , {
-        debtor: req.debtor,
-    })
+router.get('/debtorHome' , async(req , res) => {
+    try {
+        // Fetch debtor data, e.g., total number of debtors
+        const totalDebtors = await Debtor.countDocuments(); // Or any other query based on your needs
+        
+        // Render the view and pass the debtor data
+        return res.render('debtorHome', {
+          totalDebtors,
+        });
+      } catch (error) {
+        console.error('Error fetching debtor data:', error);
+        return res.status(500).send('Error fetching debtor data');
+      }
+    });
+
+
+router.get('/allinvestors' , (req , res) => {
+    return res.render('allinvestors')
 })
 
 

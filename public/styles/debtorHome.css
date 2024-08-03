@@ -642,3 +642,31 @@ nav {
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
+
+
+
+
+
+
+
+
+
+.svg-container {
+  display: flex;
+  flex-direction: column; /* Stack SVG and text vertically */
+  align-items: center; /* Center horizontally */
+  padding-top: 60px; /* Adjust top padding as needed */
+}
+
+.svg-container svg {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  color: #000; /* Adjust color as needed */
+}
+
+.svg-text {
+  /* margin-top: px; Space between SVG and text */
+  font-size: 22px; /* Adjust text size as needed */
+  color: #000; /* Adjust text color as needed */
+  text-align: center; /* Center text horizontally */
+}
