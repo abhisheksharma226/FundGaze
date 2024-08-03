@@ -237,7 +237,8 @@ nav {
 }
 
 .about__image img {
-  max-width: 450px;
+  max-width: 700px;
+  max-height: 900px;
   margin: auto;
   border-radius: 5px;
 }
@@ -323,7 +324,7 @@ nav {
 }
 
 .service {
-  background-image: url("/images/service.jpg");
+  background-image: url("/images/foot-back.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -425,7 +426,7 @@ nav {
     minmax(1rem, 1fr)
     minmax(0, var(--max-width))
     minmax(1rem, 1fr);
-  background-image: url("/images/explore.jpg");
+  background-image: url("/images/footback.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -433,7 +434,7 @@ nav {
 
 .explore__content {
   grid-column: 2/3;
-  max-width: 400px;
+  max-width: 1200px;
   padding: 2rem;
   background-color: var(--white);
   border-radius: 5px;
@@ -444,7 +445,7 @@ nav {
   margin-bottom: 0.5rem;
 }
 
-.explore__content h4 {
+.explore__content h1 {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -603,11 +604,6 @@ nav {
     gap: 2rem;
   }
 }
-
-
-
-
-
 
 
 
