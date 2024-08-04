@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const { checkForAuthenticationCookie } = require("./middleware/authentication");
 
 const debtorRoute = require('./routes/debtor');
+const investorRoute = require('./routes/investor')
 const adminRoute = require('./routes/admin')
 
 
@@ -58,6 +59,7 @@ app.get("/" , (req , res) => {
 })
 
 app.use('/debtor' , debtorRoute);
+app.use('/investor' , investorRoute);
 app.use('/admin' , adminRoute);
 
 

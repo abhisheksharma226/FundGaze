@@ -4,69 +4,79 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>SignIn</title>
+    <title>Signup</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel='stylesheet' href='/styles/login-signup.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <script src="/scripts/signup"></script> -->
+
 </head>
+
+
 
 
 <body>
 
-    
+   
         <section>
             <div class="form-box">
                 <div class="form-value">
-                  <form action="/debtor/signin" method="post">
-                        <h2 style="color: white;">Login</h2>
+                  <form action="/investor/investorSignup" method="post">
+                        <h2 style="color: white;">Signup</h2>
+
+                       <div class="inputbox"> <ion-icon name="mail-outline"></ion-icon> 
+                        <input type="text" required class="form-control" name="fullName" id="fullName" aria-describedby="fullName">
+                        <label>Full Name</label>
+                        </div>
 
                         <div class="inputbox"> <ion-icon name="mail-outline"></ion-icon> 
                         <input type="email" required class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                         <label>Email Address</label>
                         </div>
 
-                        <div class="inputbox"> <ion-icon name="lock-closed-outline"></ion-icon> 
+                        <div class="inputbox"> 
+                        <ion-icon name="lock-closed-outline"></ion-icon> 
                         <input type="password" required class="form-control" name="password" id="exampleInputPassword1"> 
                         <label>Password</label> 
                         </div>
 
-                        <!-- <div class="forget"> <label>
-                        <input type="checkbox">Remember Me</label> 
-                        <a href="#">Forgot Password</a> 
-                        </div>  -->
-
-                         <!-- For Error Control -->
-                         <% if (locals.error) { %>
+                            
+                        <!-- For Error Control -->
+                        <% if (locals.error) { %>
                           <div id="error-message" class="container-fluid">
                               <div class="alert alert-danger py-1" role="alert">
                                   <%= locals.error %>
                               </div>
                           </div>
                           <% } %>
-                        
-                        <button type="submit" class="btn btn-primary">Log In</button>
 
+                        <button type="submit" class="btn btn-primary">Signup</button>
+
+                        
                         <div class="register">
-                            <p>Don't have an account? <a href="/debtor/signup">Sign Up</a></p>
+                            <p>Already have an account? <a href="/investor/investorSignin">Login</a></p>
                         </div>
                     </form>
+
+                    
                 </div>
             </div>
         </section> 
-
-        <script>
-          // JavaScript to hide the error message after 4 seconds
-          window.onload = function() {
-              var errorMessage = document.getElementById('error-message');
-              if (errorMessage) {
-                  setTimeout(function() {
-                      errorMessage.classList.add('hidden');
-                  }, 3000); // 3000ms = 3 seconds
-              }
-          };
-      </script>
    
+
+
+    <script>
+      // JavaScript to hide the error message after 4 seconds
+      window.onload = function() {
+          var errorMessage = document.getElementById('error-message');
+          if (errorMessage) {
+              setTimeout(function() {
+                  errorMessage.classList.add('hidden');
+              }, 3000); // 3000ms = 3 seconds
+          }
+      };
+  </script>
 </body>
 
 </html>
