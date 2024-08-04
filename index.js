@@ -9,6 +9,8 @@ const cookieParser = require('cookie-parser');
 const { checkForAuthenticationCookie } = require("./middleware/authentication");
 
 
+
+
 const app = express();
 const PORT = 8080;
 
