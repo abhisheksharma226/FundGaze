@@ -3,10 +3,12 @@ dotenv.config();
 
 const express = require("express");
 const path = require("path");
-const debtorRoute = require('./routes/debtor');
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const { checkForAuthenticationCookie } = require("./middleware/authentication");
+
+const debtorRoute = require('./routes/debtor');
+const adminRoute = require('./routes/admin')
 
 
 
@@ -56,7 +58,7 @@ app.get("/" , (req , res) => {
 })
 
 app.use('/debtor' , debtorRoute);
-
+app.use('/admin' , adminRoute);
 
 
 

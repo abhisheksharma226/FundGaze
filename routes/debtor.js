@@ -69,7 +69,7 @@ router.post('/signin' , async(req , res) => {
          return res.cookie('token' , token).redirect('debtorHome');
         
         }catch (error){
-            console.error("Error in /signin:", error);
+            // console.error("Error in /signin:", error);
             return res.render("signin" , {
                 error : "Incorrect Email or Password" ,
         })
