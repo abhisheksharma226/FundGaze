@@ -24,6 +24,10 @@ router.get('/adminHome' , async(req , res) => {
 
 
 
+    router.get('/logout' ,(req , res) => {
+      res.clearCookie('token')
+      .redirect('/');
+  })
 
 
 

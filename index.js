@@ -9,6 +9,7 @@ const { checkForAuthenticationCookie } = require("./middleware/authentication");
 
 const debtorRoute = require('./routes/debtor');
 const investorRoute = require('./routes/investor')
+const developerRoute = require('./routes/developer')
 const adminRoute = require('./routes/admin')
 
 
@@ -60,6 +61,7 @@ app.get("/" , (req , res) => {
 
 app.use('/debtor' , debtorRoute);
 app.use('/investor' , investorRoute);
+app.use('/developer' , developerRoute);
 app.use('/admin' , adminRoute);
 
 
