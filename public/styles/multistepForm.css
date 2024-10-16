@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f8;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+}
+
+#multi-step-form-container {
+    width: 80%;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-step {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+    width: 98%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #2E8B57;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1c663e;
+}
+
+/* Stepper Styles */
+.form-stepper {
+    display: flex;
+    justify-content: center; /* Center stepper on the page */
+    list-style-type: none;
+    padding: 0;
+    margin: 30px 0; /* Spacing above and below */
+    position: relative; /* For absolute positioning of circles */
+}
+
+.form-stepper .form-stepper-list {
+    text-align: center; /* Center align the list items */
+    flex: 1; /* Equal width for all stepper items */
+    position: relative; /* Relative positioning for circles */
+}
+
+.form-stepper .form-stepper-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px; /* Space between circle and label */
+    position: relative; /* Absolute positioning to center within the list */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to fully center */
+}
+
+.form-stepper-active .form-stepper-circle {
+    background-color: #2E8B57;
+    color: #fff;
+}
+
+.form-stepper-unfinished .form-stepper-circle {
+    background-color: #ddd;
+    color: #999;
+}
+
+.form-stepper-completed .form-stepper-circle {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.form-stepper .label {
+    font-size: 12px;
+    margin-top: 5px; /* Space above the label */
+}
+
+.d-none {
+    display: none;
+}
+
+.invalid {
+    border: 2px solid red;
+}

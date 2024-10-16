@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const Debtor = require('../models/debtor');
+const MultistepForm = require('../models/multistepForm');
 
 const router = Router();
 
@@ -35,6 +36,75 @@ router.get('/allinvestors' , (req , res) => {
 router.get('/debtorProfile' , (req , res) => {
     return res.render('debtorProfile')
 })
+
+router.get('/multistepForm' , (req , res) => {
+    return res.render('multistepForm')
+})
+
+router.get('/thankYou' , (req , res) => {
+    return res.render('thankYou');
+})
+
+
+router.post('/multistepForm', async (req, res) => {
+    console.log(req.body); // Check the data being submitted
+
+    const {
+        founderName,
+        email,
+        phone,
+        jobStatus,
+        founderStake,
+        companyName,
+        sector,
+        companyWebsite,
+        registrationNumber,
+        patentCompleted,
+        valuation,
+        fundsNeeded,
+        equitySharing,
+        investor,
+        fundingRound,
+        productName,
+        totalSales,
+        productDescription,
+        productMaturity,
+        usersCount,
+    } = req.body;
+
+    try {
+        await MultistepForm.create({
+            founderName,
+            email,
+            phone,
+            jobStatus,
+            founderStake,
+            companyName,
+            sector,
+            companyWebsite,
+            registrationNumber,
+            patentCompleted,
+            valuation,
+            fundsNeeded,
+            equitySharing,
+            investor,
+            fundingRound,
+            productName,
+            totalSales,
+            productDescription,
+            productMaturity,
+            usersCount,
+        });
+        return res.redirect('thankYou');
+    } catch (error) {
+        console.error('Error saving data:', error);
+        return res.render('multistepForm', {
+            error: 'Something went wrong, please try again.'
+        });
+    }
+});
+
+
 
 
 

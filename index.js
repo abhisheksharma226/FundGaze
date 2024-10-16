@@ -41,13 +41,14 @@ app.use(express.static('public'));
 
 
 
+
 //for Ejs
 app.set("view engine" , "ejs");
 app.set("views" , path.resolve("./views"));
 
 
 //middlewares
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));

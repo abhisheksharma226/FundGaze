@@ -19,7 +19,7 @@ const fundRaisedSchema = new Schema({
 })
 
 
-const FundRaised = model("FundRaised" , fundRaisedSchema)
+const FundRaised = model("FundRaised" , fundRaisedSchema);
 
 
 module.exports = FundRaised;
