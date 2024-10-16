@@ -46,8 +46,35 @@ router.get('/thankYou' , (req , res) => {
 })
 
 
+router.get('/debtorProfile', async (req, res) => {
+        try {
+            const { email } = req.debtor; // Assuming email is in req.debtor
+            const debtor = await Debtor.findOne({ email });
+    
+            if (!debtor) {
+                return res.status(404).send('User not found');
+            }
+    
+            return res.render('profile', {
+                debtor,
+            });
+        } catch (error) {
+            console.error('Error fetching debtor profile:', error);
+            return res.status(500).send('Error fetching debtor profile');
+        }
+    });
+    
+
+   
+
+router.get('/logout' ,(req , res) => {
+    res.clearCookie('token')
+    .redirect('/');
+})
+
+
 router.post('/multistepForm', async (req, res) => {
-    console.log(req.body); // Check the data being submitted
+    console.log(req.body);
 
     const {
         founderName,
@@ -148,32 +175,6 @@ router.post('/signin' , async(req , res) => {
 
     })
 
-
-    router.get('/debtorProfile', async (req, res) => {
-        try {
-            const { email } = req.debtor; // Assuming email is in req.debtor
-            const debtor = await Debtor.findOne({ email });
-    
-            if (!debtor) {
-                return res.status(404).send('User not found');
-            }
-    
-            return res.render('profile', {
-                debtor,
-            });
-        } catch (error) {
-            console.error('Error fetching debtor profile:', error);
-            return res.status(500).send('Error fetching debtor profile');
-        }
-    });
-    
-
-   
-
-router.get('/logout' ,(req , res) => {
-    res.clearCookie('token')
-    .redirect('/');
-})
 
 
 

@@ -6,7 +6,6 @@ const multiFormSchema = new Schema({
     },
     email: {
         type: String,
-       
     },
     phone: {
         type: String,
