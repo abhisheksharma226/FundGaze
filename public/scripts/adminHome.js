@@ -69,3 +69,9 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
+
+
+function addAdmin() {
+    // Add your logic to open an admin form or trigger an action
+    alert("Add Admin button clicked!");
+}

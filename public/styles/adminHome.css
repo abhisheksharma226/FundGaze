@@ -590,3 +590,20 @@ body {
 		min-width: 420px;
 	}
 }
+
+
+
+.add-admin-btn {
+    padding: 10px 15px;
+    background-color:#3C91E6; /* Green */
+    color: white;
+	font-size: 17px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-admin-btn:hover {
+    background-color: #3C91E6;
+}

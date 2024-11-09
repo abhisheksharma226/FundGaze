@@ -66,6 +66,11 @@ app.use('/developer' , developerRoute);
 app.use('/admin' , adminRoute);
 
 
+// setInterval(() => {
+//     const memoryUsage = process.memoryUsage();
+//     console.log(`RSS: ${memoryUsage.rss}, Heap Used: ${memoryUsage.heapUsed}`);
+//   }, 10000);
+  
 
 
 app.listen(PORT  , ()=> {

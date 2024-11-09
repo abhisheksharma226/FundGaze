@@ -59,8 +59,9 @@
 			</li>-->
 			<li>
 				<a href="/admin/logout" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
+					<i class='bx bxs-log-out-circle'  ></i>
+					<span class="text" >Logout</span>
+					
 				</a>
 			</li>
 		</ul>
@@ -74,7 +75,7 @@
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
+			<!-- <a href="#" class="nav-link">Categories</a> -->
 			<form action="#">
 				<div class="form-input">
 					<input type="search" placeholder="Search...">
@@ -85,10 +86,10 @@
 			<label for="switch-mode" class="switch-mode"></label>
 			<a href="#" class="notification">
 				<i class='bx bxs-bell' ></i>
-				<span class="num">9</span>
+				<span class="num">6</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="/images/people.png">
+				<img src="/images/people.jpg">
 			</a>
 		</nav>
 		<!-- NAVBAR -->
@@ -137,6 +138,28 @@
 					</span>
 				</li>
 			</ul>
+
+			<!-- Add admin and Investor -->
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check'></i>
+					<span class="text">
+						<p>Add New Admin</p>
+						<h3><%= totalDebtors + totalInvestors %></h3>
+						<button onclick="addAdmin()" class="add-admin-btn">Add Admin</button>
+					</span>
+				</li>
+				
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<p>Add Investors</p>
+						<h3><%= totalInvestors %></h3>
+						<button onclick="addAdmin()" class="add-admin-btn">Add Investor</button>
+					</span>
+				</li>
+			</ul>
+
 
 
 			<!-- <div class="table-data">
